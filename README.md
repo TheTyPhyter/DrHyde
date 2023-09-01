@@ -1,4 +1,4 @@
-#### by: TheTyPhyter
+
 
 
 Windows Subsystem for Linux 2 (WSL) allows developers to run GNU/Linux applications on a lightweight virtualized Linux kernel, which interfaces with the Windows kernel, hence the "Subsystem". While this has been a powerfull efficiency tool for red team engagements and penetration tests, it presents some glaring security issues for the system itself.
